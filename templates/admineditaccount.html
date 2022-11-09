@@ -1,0 +1,137 @@
+<!-- James Wu -->
+
+<!DOCTYPE html>
+  <html>
+    <head>
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+      <script>
+        $(document).ready(function() {
+           $('select').material_select();
+           $(".dropdown-trigger").dropdown();
+        });
+      </script>
+      
+      <title>Manage accounts</title>
+    </head>
+    <style>
+
+    </style>
+
+    <body>
+
+      <nav>
+        <div class="nav-wrapper">
+          <ul class="left">
+            <li><a href="{{ url_for('admin') }}"><i class="fa fa-fw fa-home"></i> Home</a></li>
+            <li><a href="{{ url_for('adminaccount') }}"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</a></li>
+          </ul>
+
+          <div class="brand-logo center hide-on-med-and-down">
+            <ul class="center">
+              <li class="active"><a href="{{ url_for('adminaccount') }}"><i class="fa fa-users" aria-hidden="true"></i> Manage Accounts</a></li>
+              <li><a href="{{ url_for('adminbook') }}"><i class="fa fa-book" aria-hidden="true"></i> Manage Books</a></li>
+              <li><a href="{{ url_for('adminclass') }}"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Manage Classes</a></li>
+            </ul>
+          </div>
+
+          <ul class="right">
+            <li><a href="{{ url_for('logout') }}"><i class="fa fa-sign-out"></i> Log out</a></li>
+          </ul>
+
+        </div>
+      </nav>
+
+        <br><br><br><br>
+
+
+        <div class="container" style="width:700px">
+
+          <div class="card">
+
+            <h4 style="color:#374740; font-weight: 500; text-align: center;">Edit account details</h4><br>
+  
+              <form action = "" method = "POST" class="form-inline" id="editform">
+          
+                  <div class="form-field">
+                      <input type="text" name="username" id="username_input" class="form-control" placeholder="Username: {{details.username}}">
+                  </div><br>
+  
+                  <div class="form-field">
+                      <input type="text" name="forename" id="forename_input" class="form-control" placeholder="Forename: {{details.forename}}">
+                  </div><br>
+  
+                  <div class="form-field">
+                      <input type="text" name="surname" id="surname_input" class="form-control" placeholder="Surname: {{details.surname}}">
+                  </div><br>
+  
+                  <div class="form-field">
+                  <select name="gender" id="gender_input" form="editform">
+                      <option value="" selected>Gender: {{details.gender}}</option>                                
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                      <option value="other">Other / Prefer not to say</option>
+                  </select>
+                  </div><br>
+  
+                  <div class="form-field">
+                      <input type="text" name="dob" id="dob_input" class="form-control" placeholder="Date of Birth: {{details.dob}}" onfocus="(this.type='date')" onblur="(this.type='text')">
+                  </div><br>
+                  
+                  <div class="form-field">
+                      <input type="email" name="email" id="email_input" class="form-control" placeholder="Email: {{details.email}}">
+                  </div><br>
+  
+                  <div class="form-field">
+                  <select name="occupation" id="occupation_input" form="editform">
+                      <option value="" selected>Occupation: {{details.occupation}}</option>                           
+                      <option value="student">Student</option>
+                      <option value="teacher">Teacher</option>
+                      <option value="admin">Admin</option>
+                  </select>
+                  </div>
+  
+                  <br>
+  
+                  <label>
+                      <input type="checkbox" name="resetpassword" form ="editform"/>
+                      <span>Reset password</span>
+                  </label>
+  
+                  <br><br>
+  
+                  <div class="form-field">
+                      <button type="submit" name="submit" value="editform" class="btn-large">Submit</button>
+                  </div><br>
+  
+              </form>
+
+              <p style="color:red">{{message}}</p>
+
+          </div>
+          
+          <br><br><br><br>
+
+        </div>
+
+
+      <script>
+  
+      // Prevents resubmission every refresh
+      if ( window.history.replaceState ) {
+          window.history.replaceState( null, null, window.location.href );
+      }
+  
+      </script>
+
+
+  </body>
+
+</html>

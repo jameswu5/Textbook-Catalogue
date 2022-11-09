@@ -1,0 +1,101 @@
+BookID,Title,Author,ISBN,Length,Price,SubjectID
+1,"Boot, Das (Boat, The)",Shirline Danielsohn,619077115-7,219,21.97,7
+2,"Captain Newman, M.D.",Elysha Mardy,546433150-6,216,24.48,1
+3,Breaking the Maya Code,Terrence Blampied,288917083-7,285,12.92,10
+4,"Gendarme Gets Married, The (Le gendarme se marie)",Robbin Tebbutt,617818825-0,244,27.42,8
+5,Domestic Disturbance,Sherie Dargavel,560177672-5,327,15.00,6
+6,Alps (Alpeis),Nicolette Di Matteo,575433142-8,371,12.90,1
+7,Bats,Avis Batisse,266028645-0,213,14.59,5
+8,"Kiss Me, Stupid",Frankie Bigglestone,943870610-0,249,25.73,3
+9,Enemy at the Gates,Celeste Vanyushin,335519603-7,365,28.68,3
+10,West Beirut (West Beyrouth),Mannie Matten,895930072-1,268,23.88,3
+11,"Commare secca, La (Grim Reaper, The)",Taddeusz Retallack,866166345-8,277,23.96,9
+12,Indiana Jones and the Temple of Doom,Andreana Copperwaite,002413509-7,251,27.44,7
+13,"House of the Seven Gables, The",Emery Hugh,958756466-9,435,29.95,8
+14,Dickson Greeting,Cordie Drabble,950569066-5,269,27.39,2
+15,Fundamentals of Prime Numbers,Loki,4646085704,272,18.99,1
+16,I've Loved You So Long (Il y a longtemps que je t'aime),Sheffield Dewfall,874881489-X,411,12.62,9
+17,French Fried Vacation 3 (Les bronzés 3: amis pour la vie),Kelli Tenny,118703419-3,294,10.32,6
+18,Death Defying Acts,Johnathon Cartmell,548150976-8,319,24.50,7
+19,Sleeping Beauty,Perceval Sanper,504345690-6,221,26.04,2
+20,Queen: Days of Our Lives,Nerti Meagher,189361579-0,328,16.69,7
+21,Make Your Move,Shanan Wainscot,834818339-6,373,11.13,2
+22,"Iceberg, L'",Olympia Orriss,139418019-5,208,19.75,4
+23,"Saphead, The",Saul Ambrois,497389865-1,411,10.35,8
+24,"Taking of Pelham 1 2 3, The",Irwinn Kibel,989703489-7,414,19.67,10
+25,That Evening Sun,Lorine Hrinishin,570063217-9,298,14.51,6
+26,You're a Big Boy Now,Noak Ovenden,485268898-2,314,20.76,7
+27,Hollow Point,Vitia Keets,429294352-4,402,11.50,6
+28,Cats & Dogs,Miguelita Geddes,070515814-4,357,27.90,9
+29,"Accidental Spy, The (Dak miu mai shing)",Celka McGilvra,807460169-2,341,19.02,6
+30,"Enemy Below, The",Fianna Marages,568305616-0,361,25.94,9
+31,Callan,Erena O' Shea,511783669-3,377,25.54,10
+32,Man in the Middle,Trever Hanlon,979865790-X,301,24.14,3
+33,Altman,Audi Marushak,079273191-3,355,27.10,9
+34,Sherlock Holmes and the Secret Weapon,Caz Jenckes,445089764-1,278,17.65,1
+35,Sky West and Crooked (Gypsy Girl),Tanitansy Rawls,257445102-3,224,12.65,3
+36,Every Stewardess Goes to Heaven (Todas las azafatas van al cielo),Golda Buzek,716787632-1,421,27.47,5
+37,Shadows (Senki),Darnell Balam,115135479-1,203,28.34,8
+38,"Cottage, The",Jillayne Dewire,062194189-1,372,24.20,6
+39,"Bug's Life, A",Malinde Paddie,407971460-2,395,15.39,5
+40,Final Destination,Mervin Blaxley,510566659-3,380,12.01,3
+41,Wall Street,Jerry Imbrey,894375025-0,286,24.25,1
+42,200 Motels,Mano Woolpert,010214016-2,234,12.80,4
+43,Familia,Ulrikaumeko Dunning,619419724-2,228,29.46,8
+44,Teenage,Anetta Cahalin,432416959-4,411,19.51,1
+45,"Club, The",Obadias Elleray,746804228-4,345,23.11,7
+46,"Scarecrow, The",Mommy Menure,046712127-3,421,21.48,2
+47,Sergeant York,Beilul Huntress,570170205-7,383,29.60,7
+48,Star Wars: Episode II - Attack of the Clones,Lillian Laudham,061483051-6,218,12.24,3
+49,Maximum Conviction,Alva Durrett,850374071-0,387,20.34,4
+50,Wife! Be Like a Rose! (Tsuma yo bara no yo ni),Jsandye Drivers,093769303-0,374,13.82,8
+51,Murder à la Mod,Elmer MacIlhargy,732881666-X,316,16.55,9
+52,"Recruit, The",Jori Klimczak,387434832-6,219,10.74,6
+53,Shakespeare's Globe: Henry V,Iris Cottle,742430650-2,389,18.05,8
+54,3 Backyards,Kare Donne,544017153-3,263,13.91,7
+55,Dead Man Walking,Elonore Pavy,045336776-3,347,19.46,8
+56,Space Cowboys,Chrysa MacAvaddy,307118736-X,403,19.37,2
+57,Super Mario Bros.,Marylynne Skeermer,819206315-1,444,24.82,8
+58,Santa Fe Trail,Happy Tremathick,295070251-1,388,20.84,1
+59,Extremities,Devin Ochterlonie,945125780-2,286,12.99,6
+60,Funny Ha Ha,Eliot Houtbie,922907438-1,301,23.01,4
+61,"Thing Called Love, The",Risa Maybury,621595541-8,369,19.34,1
+62,Ingmar Bergman on Life and Work (Ingmar Bergman: Om liv och arbete),Tanney Kruger,495157789-5,392,13.90,3
+63,Kummeli Goldrush (Kummeli kultakuume),Dorthy Tillett,651427092-1,208,13.63,3
+64,Bread and Chocolate (Pane e cioccolata),Nessa Goggin,582630172-4,307,28.82,9
+65,Hedwig and the Angry Inch,Brose Issacson,053363848-8,404,26.07,10
+66,"Wedding Weekend, The (Sing Now or Forever Hold Your Peace) (Shut Up and Sing)",Sibyl Cassidy,295990968-2,368,25.13,2
+67,Evil Dead II (Dead by Dawn),Charissa Paul,185975581-X,229,12.99,8
+68,Bombardier,Elisabet D'Onisi,007626854-3,301,17.03,6
+69,Rudderless,Marmaduke Lowcock,591234258-1,384,20.83,9
+70,Sergeant York,Catharina Choppin,323070074-0,275,12.60,9
+71,"Khroustaliov, My Car! (Khrustalyov, mashinu!)",Serene Chettle,900175444-9,366,27.74,9
+72,"What's in a Name (Prénom, Le)",Jelene Gronaller,512004765-3,280,25.03,1
+73,Night Tide,Keary Sumbler,154879385-X,369,15.30,1
+74,Gun Fury,Brocky Dykins,666661088-1,378,26.10,8
+75,Black Knight,Georgeanne Meo,824254139-6,300,19.67,8
+76,"Capture of Bigfoot, The",Ivy Mottershaw,186802066-5,310,27.15,3
+77,Garfield's Fun Fest,Nevil Herculeson,628989171-5,241,13.63,9
+78,At Long Last Love,Gregoor Lehrer,243577357-9,359,17.76,8
+79,Rent-a-Cat,Thorstein Bartolomieu,904041842-X,312,17.03,3
+80,"Battle of Shaker Heights, The",Sheeree Zanitti,921257837-3,312,21.41,6
+81,Wrong Turn 3: Left for Dead,Minda Anstee,470822674-8,294,17.33,9
+82,Rugrats Go Wild!,Ruddie Cockayme,894399591-1,257,14.30,2
+83,Fingers,Rowland Hache,955519777-6,251,19.09,7
+84,Love Walked In,Woodrow Willisch,894744236-4,345,11.90,9
+85,Deadly Prey,Sheppard Dobrowolny,211377773-8,219,10.16,3
+86,Panic Button,Guillaume Schindler,905980849-5,342,14.06,2
+87,Suicide Club (Jisatsu saakuru),Matilde Wakeham,613770746-6,449,13.49,4
+88,Scent of a Woman (Profumo di donna),Connor Henner,327724033-9,300,17.06,2
+89,Liebelei,Deane Ivanenko,489984893-5,213,14.67,9
+90,"Face of Another, The (Tanin no kao)",Saunder Saldler,949218620-9,255,19.25,1
+91,Miss Potter,Hatty Hawksley,216220763-X,258,19.98,5
+92,Closing the Ring,Alene Lowre,756396689-7,440,23.79,9
+93,Rehearsals for Extinct Anatomies,Joye Marmon,588244947-2,364,17.34,1
+94,Charlie Chan in Honolulu,Petronella Staines,598631328-3,382,27.85,8
+95,Lilies,Selle Roydon,515405240-4,254,12.53,4
+96,"Man Who Knew Too Little, The",Dane Porson,021425813-0,317,11.35,6
+97,In Between Days,Adelind Butterworth,705189115-4,267,13.42,7
+98,Love and Basketball,Melvin Worstall,396872714-2,275,22.10,7
+99,Let's Scare Jessica to Death,Sile Weaving,326847171-4,290,14.42,10
+100,High Risk,Arden McKeighen,818471180-8,366,13.15,2

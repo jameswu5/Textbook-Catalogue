@@ -1,0 +1,121 @@
+<!-- James Wu -->
+
+<!DOCTYPE html>
+  <html>
+    <head>
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <script type = "text/javascript"
+         src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+      <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js">
+      </script> 
+      <script>
+         $(document).ready(function() {
+            $('select').material_select();
+         });
+      </script>
+      <title>Student home</title>
+    </head>
+    <style>
+    </style>
+
+    <body>
+      <nav>
+        <div class="nav-wrapper">
+          <ul class="left">
+            <li class="active"><a href="../student"><i class="fa fa-fw fa-home"></i> Home</a></li>
+            <li><a href="{{ url_for('allbooks')}}"><i class="fa fa-book" aria-hidden="true"></i> Books</a></li>
+          </ul>
+
+          <ul class="right">
+            <li><a href="{{ url_for('logout') }}"><i class="fa fa-sign-out"></i> Log out</a></li>
+          </ul>
+
+        </div>
+      </nav>
+      
+
+        <br><br><br><br>
+
+        <div class="container">
+
+            <div class="tab">
+                <button class="tablinks" onclick="openTab(event, 'home')" id="defaultOpen">Home</button>
+                <button class="tablinks" onclick="openTab(event, 'profile')">Profile</button>
+                <button class="tablinks" onclick="openTab(event, 'browsebooks')">Browse books</button>
+            </div>
+
+            <div id="home" class="tabcontent">
+              <br></br>
+              <h4 style="color:#374740; font-weight: 500; text-align: center;">Welcome, {{person.forename}} {{person.surname}}!</h4><br>
+            </div>
+            
+            <div id="profile" class="tabcontent">
+              <br><br>
+              <h4 style="color:#374740; font-weight: 500; text-align: center;">Profile</h4><br>
+                <p>Name: {{person.forename}} {{person.surname}}</p>
+                <p>Gender: {{person.gender}}</p>
+                <p>Date of birth: {{person.dob}}</p>
+                <p>Email: {{person.email}}</p>
+                <p>Charge: £{{person.charge}}</p>
+
+                <a class="btn" href="{{url_for('changepassword')}}" style="width:30%">Change password</a>  
+
+                <br><br>
+                <h5>Books currently borrowing:</h5>
+                {% for book in books %}
+                <p>{{book.title}} by {{book.author}}</p>
+                {% endfor %}
+            </div>
+
+            <div id="browsebooks" class="tabcontent">
+                <br><br>
+
+                <h4 style="color:#374740; font-weight: 500; text-align: center;">Books for you:</h4><br>
+                {% for randombook in randombooks %}
+                <div class="card">
+                    <a href="" style="color:lightseagreen">{{ randombook.title }}</a>
+                    <p><span class="bold">Author: </span>{{ randombook.author }}<p>
+                    <p><span class="bold">ISBN: </span>{{ randombook.isbn }}</p>
+                    <p><span class="bold">Department: </span>{{ randombook.department }}</p>
+                </div>
+                <br>
+                {% endfor %}
+                <br>
+                <a class="btn-large" style="width:40%" href="books">Browse all books</a><br><br><br><br>
+            </div>
+        </div>
+
+    <script>
+
+    function openTab(evt, option) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(option).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
+
+    // Prevents resubmission every refresh
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+
+    </script>
+
+  </body>
+
+</html>

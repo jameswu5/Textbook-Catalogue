@@ -1,0 +1,72 @@
+<!-- James Wu -->
+
+<!DOCTYPE html>
+  <html>
+    <head>
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <title>Welcome!</title>
+    </head>
+    <style>
+      .textbox{
+          margin-top: 220px;
+          margin-left: 220px;
+      }
+
+      .container{
+          width: 800px;
+          height: 350px;
+          margin-top: -200px;
+          margin-right: 220px;
+          float: right;
+          border-radius: 12px;
+          background-color: white;
+          width: 390px;
+          height: 355px;  
+          text-align: center;
+      }
+
+    </style>
+
+    <body>
+            
+        <br><br>
+
+        <div class="textbox">
+          <h3 style="color:#37474f; font-weight:500;">Textbook catalogue</h3>
+          <h5 style="color: #37474f">Tool for managing school textbooks</h5>
+        </div>
+
+        <div class="container">
+          
+          <div class="card" style="width:400px">
+
+              <h4 style="color:#374740; font-weight: 500">Get started</h4><br>
+              <form action = "" method = "POST" class="form-inline" id="loginform">
+                  
+                  <div class="form-field" style="color: #263238;">
+                      <input type="text" name="username" class="form-control" style="width:85%" placeholder="Username">
+                  </div><br>
+  
+                  <div class="form-field" style="color: #263238;">
+                      <input type="password" name="password" class="form-control" style="width:85%" placeholder="Password">
+                  </div><br><br>
+  
+                  <div class="form-field">
+                      <button type="submit" name="submit" value="loginform" class="btn-large" style="width: 50%">Log In</button>
+                  </div><br>
+              </form>
+
+              <p style="color:red">{{message}}</p>
+
+          </div>
+
+        </div>
+
+  </body>
+
+</html>

@@ -1,0 +1,88 @@
+<!-- James Wu -->
+
+<!DOCTYPE html>
+  <html>
+    <head>
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <title>All books</title>
+    </head>
+    <style>
+    </style>
+
+    <body>
+
+      <nav>
+        <div class="nav-wrapper">
+          <ul class="left">
+            <li><a href="{{ url_for('admin') }}"><i class="fa fa-fw fa-home"></i> Home</a></li>
+            <li><a href="{{ url_for('adminbook') }}"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</a></li>
+          </ul>
+
+          <div class="brand-logo center hide-on-med-and-down">
+            <ul class="center">
+              <li><a href="{{ url_for('adminaccount') }}"><i class="fa fa-users" aria-hidden="true"></i> Manage Accounts</a></li>
+              <li class="active"><a href="{{ url_for('adminbook') }}"><i class="fa fa-book" aria-hidden="true"></i> Manage Books</a></li>
+              <li><a href="{{ url_for('adminclass') }}"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Manage Classes</a></li>
+            </ul>
+          </div>
+
+          <ul class="right">
+            <li><a href="{{ url_for('logout') }}"><i class="fa fa-sign-out"></i> Log out</a></li>
+          </ul>
+
+        </div>
+      </nav>
+                
+            <div class="container">
+                <br><br>
+                <h4 style="color:#374740; font-weight: 500; text-align: center;">Remove books</h4><br>
+                
+                <form action = "" method = "POST" class="form-inline" id="books">
+                  <table>
+                  <tr>
+                      <th>Book ID</th>
+                      <th>Title</th>
+                      <th>Author</th>
+                      <th>Delete?</th>
+                  </tr>
+
+                  {% for book in books %}
+                  <tr>
+                      <td>{{book.id}}</td>
+                      <td>{{book.title}}</td>
+                      <td>{{book.author}}</td>
+                      <td>
+                        <label>
+                          <input type="checkbox" name="book{{book.id}}" form ="books"/>
+                          <span></span>
+                        </label>
+                      </td>
+                  </tr>
+                  {% endfor %}
+                  </table>
+
+                  <br><br>
+
+                  <div class="form-field">
+                    <button type="submit" name="submit" value = "books" class="btn-large">Submit</button>
+                  </div>
+
+                </form>
+
+                <br><br>
+
+            </div>
+        </div>
+
+    <script>
+
+    </script>
+
+  </body>
+
+</html>

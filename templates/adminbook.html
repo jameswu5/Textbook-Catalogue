@@ -1,0 +1,216 @@
+<!-- James Wu -->
+
+<!DOCTYPE html>
+  <html>
+    <head>
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+      <link rel="stylesheet" href="../static/style.css">
+
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+      <script>
+        $(document).ready(function() {
+           $('select').material_select();
+        });
+      </script>
+      
+      <title>Manage books</title>
+    </head>
+    <style>
+
+    </style>
+
+    <body>
+
+      <nav>
+        <div class="nav-wrapper">
+          <ul class="left">
+            <li><a href="../admin"><i class="fa fa-fw fa-home"></i> Home</a></li>
+          </ul>
+
+          <div class="brand-logo center hide-on-med-and-down">
+            <ul class="center">
+              <li><a href="../admin/account"><i class="fa fa-users" aria-hidden="true"></i> Manage Accounts</a></li>
+              <li class="active"><a href="../admin/book"><i class="fa fa-book" aria-hidden="true"></i> Manage Books</a></li>
+              <li><a href="../admin/class"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Manage Classes</a></li>
+            </ul>
+          </div>
+
+          <ul class="right">
+            <li><a href="../logout"><i class="fa fa-sign-out"></i> Log out</a></li>
+          </ul>
+
+        </div>
+      </nav>
+
+
+        <div class="container">
+
+            <br><br><br><br>
+
+            <div class="tab">
+              <button class="tablinks" onclick="openTab(event, 'addbook')" id="defaultOpen">Add books</button>
+              <button class="tablinks" onclick="openTab(event, 'removebook')">Remove books</button>
+              <button class="tablinks" onclick="openTab(event, 'createloan')">Create loans</button>
+              <button class="tablinks" onclick="openTab(event, 'booksmissing')">View missing books</button>
+            </div>
+
+            <div id="addbook" class="tabcontent">
+              <br><br>
+              <h4 style="color:#374740; font-weight: 500; text-align: center;">Add book</h4><br>
+
+                <form action = "" method = "POST" class="form-inline" id="bookform">
+        
+                    <div class="form-field">
+                        <input type="text" name="title" id="title_input" class="form-control" placeholder="Title" required>
+                    </div><br>
+        
+                    <div class="form-field">
+                        <input type="text" name="author" id="author_input" class="form-control" placeholder="Author" required>
+                    </div><br>
+        
+                    <div class="form-field">
+                        <input type="text" name="isbn" id="isbn_input" class="form-control" placeholder="ISBN" required>
+                    </div><br>
+
+                    <div class="form-field">
+                        <input type="number" name="length" id="length_input" class="form-control" placeholder="Length" required>
+                    </div><br>
+        
+                    <div class="form-field">
+                        <input type="text" name="price" id="price_input" class="form-control" placeholder="Price"required>
+                    </div><br>
+
+                    <div class="form-field">
+                        <select name="subject" id="subject_input" form="bookform" required>
+                            <option value="" disabled selected>Choose the subject</option>                                
+                            {% for subject in subjects %}
+                            <option value="{{ subject.id }}">{{ subject.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div><br><br>
+
+                    <div class="form-field">
+                        <button type="submit" name="submit" value="bookform" class="btn-large">Submit</button>
+                    </div><br>
+        
+                </form>
+
+                <p style="color:red">{{message}}</p>
+
+              </div>
+
+              <div id="removebook" class="tabcontent">
+                <br><br>
+                <h4 style="color:#374740; font-weight: 500; text-align: center;">List of books to remove from: </h4><br><br>
+                <a class="btn-large waves-effect waves-light" href="/admin/book/all">All books</a>
+              </div>
+
+              <div id="createloan" class="tabcontent">
+                <br><br>
+                <h4 style="color:#374740; font-weight: 500; text-align: center;">Create loan</h4><br>
+
+                  <form action = "" method = "POST" class="form-inline" id="loan">
+          
+                        <div class="form-field">
+                            <select name="person" id="person" form="loan" required>
+                                <option value="" disabled selected>Choose the person borrowing</option>                                
+                                {% for person in people %}
+                                <option value="{{ person.id }}">{{ person.forename }} {{ person.surname }}</option>
+                                {% endfor %}
+                            </select>
+                        </div><br>
+
+                        <div class="form-field">
+                            <select name="book" id="book" form="loan" required>
+                                <option value="" disabled selected>Choose the book borrowed</option>                                
+                                {% for book in books %}
+                                <option value="{{ book.id }}">{{ book.title }}</option>
+                                {% endfor %}
+                            </select>
+                        </div><br>
+                        
+                        <div class="form-field" style="color: #263238;">
+                            <input type="number" name="booknumber" id="booknumber" placeholder="Book number" class="form-control">
+                        </div><br><br>
+
+                      <div class="form-field">
+                          <button type="submit" name="submit" value="loan" class="btn-large">Submit</button>
+                      </div><br>
+          
+                  </form>
+              </div>
+
+              <div id="booksmissing" class="tabcontent">
+                <br><br>
+                <h4 style="color:#374740; font-weight: 500; text-align: center;">Missing books</h4><br>
+                
+                <form action = "" method = "POST" class="form-inline" id="missing">
+
+                    <table>
+                    <tr>
+                        <th>Book Title</th>
+                        <th>Student</th>
+                        <th>Manage</th>
+                    </tr>
+
+                    {% for missingbook in missingbooks %}
+                    <tr>
+                        <td>{{missingbook.title}}</td>
+                        <td>{{missingbook.studentborrowing}}</td>
+                        <td>
+                            <div class="form-field">
+                                <select name="status{{missingbook.libraryid}}" form="missing" required>
+                                    <option value="Missing" selected>Still missing</option>                                
+                                    <option value="Returned">Returned</option>
+                                    <option value="Replaced">Replaced</option>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+
+                    {% endfor %}
+
+                    </table>
+
+                    <br><br>
+                    <div class="form-field">
+                        <button type="submit" name="submit" value="missing" class="btn-large">Submit</button>
+                    </div><br>
+
+                </form>
+              </div>
+        </div>
+    <script>
+
+      function openTab(evt, option) {
+          var i, tabcontent, tablinks;
+          tabcontent = document.getElementsByClassName("tabcontent");
+          for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+          }
+          tablinks = document.getElementsByClassName("tablinks");
+          for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+          }
+          document.getElementById(option).style.display = "block";
+          evt.currentTarget.className += " active";
+      }
+  
+      // Get the element with id="defaultOpen" and click on it
+      document.getElementById("defaultOpen").click();
+  
+      // Prevents resubmission every refresh
+      if ( window.history.replaceState ) {
+          window.history.replaceState( null, null, window.location.href );
+      }
+  
+      </script>
+  </body>
+
+</html>

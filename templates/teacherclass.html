@@ -1,0 +1,145 @@
+<!-- James Wu -->
+
+<!DOCTYPE html>
+  <html>
+    <head>
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <script type = "text/javascript"
+         src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+      <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js">
+      </script> 
+      <script>
+         $(document).ready(function() {
+            $('select').material_select();
+         });
+      </script>
+      <title>Teacher</title>
+    </head>
+    <style></style>
+
+    <body>
+      <nav>
+        <div class="nav-wrapper">
+          <ul class="left">
+            <li><a href="../teacher"><i class="fa fa-fw fa-home"></i> Home</a></li>
+          </ul>
+
+          <ul class="right">
+            <li><a href="../logout"><i class="fa fa-sign-out"></i> Log out</a></li>
+          </ul>
+
+        </div>
+      </nav>
+
+
+        <br><br><br><br>
+
+        <div class="container">
+
+            <div class="tab">
+                <button class="tablinks" onclick="openTab(event, 'home')" id="defaultOpen">Home</button>
+                <button class="tablinks" onclick="openTab(event, 'assignbook')">Assign textbooks</button>
+                <button class="tablinks" onclick="openTab(event, 'returnbook')">Return textbooks</button>
+            </div>
+
+            <div id="home" class="tabcontent">
+              <br><br>
+              <h4 style="color:#374740; font-weight: 500; text-align: center;">Class {{classobject.name}}</h4><br>
+
+              <h5 style="color:#374740; font-weight: 500; text-align: center;">Select another class:</h5>
+              {% for otherclass in otherclasses %}
+              <a class="btn" href="./{{ otherclass.cID }}">{{ otherclass.name }}</a>
+              {% endfor %}
+            
+            </div>
+            
+            <div id="assignbook" class="tabcontent">
+              <br><br>
+              <h4 style="color:#374740; font-weight: 500; text-align: center;">Assign textbooks</h4><br>
+              <form action = "" method = "POST" class="form-inline" id="assign">
+
+                <div class="form-field">
+                  <select name="book" id="book_input" form="assign" required>
+                      <option value="" disabled selected>Choose textbook</option>                                
+                      {% for book in books %}
+                      <option value="{{ book.id }}">{{ book.title }}</option>
+                      {% endfor %}
+                  </select>
+                </div>
+
+                <br><br>
+
+                <table>
+                  <tr>
+                      <th>Forename</th>
+                      <th>Surname</th>
+                      <th>Book number</th>
+                  </tr>
+
+                  {% for student in students %}
+                  <tr>
+                      <td>{{ student.forename }}</td>
+                      <td>{{ student.surname }}</td>
+
+                      <td>
+                        <div class="form-field" style="color: #263238;">
+                          <input type="number" name="booknumber{{student.id}}" id="booknumber_input" class="form-control">
+                        </div>
+                      </td>
+                  </tr>
+                  {% endfor %}
+          
+                </table>
+               
+                <br><br>
+                <div class="form-field">
+                  <button type="submit" name="submit" value = "assign" class="btn-large">Submit</button>
+                </div><br>
+
+              </form>
+
+            </div>
+
+            <div id="returnbook" class="tabcontent"><br><br>
+
+              <h4 style="color:#374740; font-weight: 500; text-align: center;">Select textbook to return</h4><br>
+
+                {% for loanedbook in loanedbooks %}
+                <p><a href="return/{{loanedbook.id}}">{{ loanedbook.title }}</a></p>
+                {% endfor %}
+
+            </div>
+        </div>
+
+    <script>
+
+    function openTab(evt, option) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(option).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
+
+    // Prevents resubmission every refresh
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+
+    </script>
+  </body>
+</html>

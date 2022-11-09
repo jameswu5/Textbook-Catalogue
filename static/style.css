@@ -1,0 +1,133 @@
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+th, td {
+    text-align: left;
+    padding: 16px;
+}
+
+tr:nth-child(even) {
+    background-color: #ffffffd5;
+}
+
+tr:nth-child(odd) {
+    background-color: white;
+}
+
+.tab {
+    float: left;
+    border: 1px solid #cfd8dc;
+    background-color: #eceff1;
+    width: 30%;
+    min-height: 800px;
+    box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.25), 0 9px 30px 0 rgba(0, 0, 0, 0.25);
+}
+
+.tab button {
+    display: block;
+    background-color: inherit;
+    padding: 22px 16px;
+    width: 100%;
+    color: #263238;
+    border: none;
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+.tab button:hover {
+    background-color: #cfd8dc;
+}
+
+.tab button.active {
+    background-color: #8da5b4;
+}
+
+.tabcontent {
+    float: left;
+    padding: 0px 12px;
+    border: 1px solid #cfd8dc;
+    background-color: white;
+    width: 70%;
+    border-left: none;
+    min-height: 800px;
+    box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.25), 0 9px 30px 0 rgba(0, 0, 0, 0.25);
+}
+
+
+body {
+    background-color: #eceff1;
+}
+
+.card {
+    float: center;
+    background-color: white;
+    margin-top: -12px;
+    padding: 20px;
+    box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.25), 0 9px 30px 0 rgba(0, 0, 0, 0.25);
+}
+
+.container {
+    text-align:center;
+}
+
+div.form-field {
+    width:75%;
+    margin:auto
+}
+
+div.form-field button {
+    background-color: #90a4ae ;
+    width:35%;
+    color:white;
+    font-weight: 500;
+}
+
+div.form-field button:hover {
+    background-color: #5a6b74;
+}
+
+a.btn-large{
+    background-color: #90a4ae ;
+    width:25%;
+    color:white;
+    font-weight: 500;
+}
+
+a.btn-large:hover{
+    background-color: #5a6b74;
+}
+
+a.btn{
+    background-color: #90a4ae ;
+    width:25%;
+    color:white;
+    font-weight: 500;
+}
+
+a.btn:hover{
+    background-color: #5a6b74;
+}
+
+nav {
+    background-color: #8da5b4;
+    height:64px;
+}
+
+nav li:hover {
+    background-color: #6f899b;
+}
+
+nav ul li.active {
+    background-color: #647580;
+}
+
+nav ul li.active:hover {
+    background-color: #6f899b;
+}

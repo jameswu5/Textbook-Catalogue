@@ -1,0 +1,248 @@
+<!-- James Wu -->
+
+<!DOCTYPE html>
+  <html>
+    <head>
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <script type = "text/javascript" src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      </script> 
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+      <script>
+        $(document).ready(function() {
+           $('select').material_select();
+        });
+      </script>
+      <title>Manage classes</title>
+    </head>
+    <style>
+    
+    </style>
+
+    <body>
+          
+      <nav>
+        <div class="nav-wrapper">
+          <ul class="left">
+            <li><a href="../admin"><i class="fa fa-fw fa-home"></i> Home</a></li>
+          </ul>
+
+          <div class="brand-logo center hide-on-med-and-down">
+            <ul class="center">
+              <li><a href="../admin/account"><i class="fa fa-users" aria-hidden="true"></i> Manage Accounts</a></li>
+              <li><a href="../admin/book"><i class="fa fa-book" aria-hidden="true"></i> Manage Books</a></li>
+              <li class="active"><a href="../admin/class"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Manage Classes</a></li>
+            </ul>
+          </div>
+
+          <ul class="right">
+            <li><a href="../logout"><i class="fa fa-sign-out"></i> Log out</a></li>
+          </ul>
+
+        </div>
+      </nav>
+
+
+        <br><br><br><br>
+
+        <div class="container">
+
+          <div class="tab">
+              <button class="tablinks" onclick="openTab(event, 'addclass')" id="defaultOpen">Add to class</button>
+              <button class="tablinks" onclick="openTab(event, 'removeclass')">Remove from class</button>
+              <button class="tablinks" onclick="openTab(event, 'moveclass')">Move class to class</button>
+              <button class="tablinks" onclick="openTab(event, 'createclass')">Create new class</button>
+              <button class="tablinks" onclick="openTab(event, 'renameclass')">Rename class</button>
+
+          </div>
+
+          <div id="addclass" class="tabcontent">
+            <br><br>
+            <h4 style="color:#374740; font-weight: 500; text-align: center;">Add person to class</h4><br>
+
+            <form action = "" method = "POST" class="form-inline" id="classform">
+
+                <div class="form-field">
+                  <select name="person" id="person_input" form="classform" required>
+                      <option value="" disabled selected>Person</option>
+                      
+                      {% for person in people %}
+                      <option value="{{ person.pID }}">{{ person.forename }} {{ person.surname }}</option>
+                      {% endfor %}
+                  </select>
+                </div>
+              
+                <br>
+                
+                <div class="form-field">
+                  <select name="theclass" id="theclass_input" form="classform" required>
+                      <option value="" disabled selected>Select</option>
+                      
+                      {% for theclass in classes %}
+                      <option value="{{ theclass.cID }}">{{ theclass.name }}</option>
+                      {% endfor %}
+                  </select>
+                </div>
+                <br><br>
+
+                <div class="form-field">
+                    <button type="submit" name="submit" value = "classform" class="btn-large">Submit</button>
+                </div><br>
+            </form>
+
+          </div>
+
+
+          <div id="removeclass" class="tabcontent">
+            <br><br>
+            <h4 style="color:#374740; font-weight: 500; text-align: center;">List of classes</h4><br>
+
+            <form action = "" method = "POST" class="form-inline" id="removeform">
+
+                <div class="form-field">
+                  <select name="theclass" id="class_input" form="removeform" required>
+                      <option value="" disabled selected>Select</option>
+                      
+                      {% for theclass in classes %}
+                      <option value="{{ theclass.cID }}">{{ theclass.name }}</option>
+                      {% endfor %}
+                  </select>
+                </div>
+              
+                <br><br>
+
+                <div class="form-field">
+                    <button type="submit" name="submit" value = "removeform" class="btn-large">Submit</button>
+                </div><br>
+            </form>
+
+          </div>
+
+
+          <div id="moveclass" class="tabcontent">
+            <br><br>
+            <h4 style="color:#374740; font-weight: 500; text-align: center;">Move whole class to another</h4><br>
+            <form action = "" method = "POST" class="form-inline" id="moveform">
+
+              <div class="form-field">
+                <select name="firstclass" id="class_input" form="moveform" required>
+                    <option value="" disabled selected>From Class</option>
+                    
+                    {% for class1 in classes %}
+                    <option value="{{ class1.cID }}">{{ class1.name }}</option>
+                    {% endfor %}
+                </select>
+              </div>
+            
+              <br>
+
+              <div class="form-field">
+                <select name="secondclass" id="class_input" form="moveform" required>
+                    <option value="" disabled selected>To Class</option>
+                    {% for class2 in classes %}
+                    <option value="{{ class2.cID }}">{{ class2.name }}</option>
+                    {% endfor %}
+                </select>
+              </div>
+              <br><br>
+
+              <div class="form-field">
+                  <button type="submit" name="submit" value="moveform" class="btn-large">Submit</button>
+              </div><br>
+            </form>
+
+
+          </div>
+
+
+          <div id="createclass" class="tabcontent">
+            <br><br>
+            <h4 style="color:#374740; font-weight: 500; text-align: center;">Create new class</h4><br>
+
+            <form action = "" method = "POST" class="form-inline" id="createform">
+
+                <div class="form-field">
+                  <input type="text" name="classname" id="name_input" placeholder="Class name" class="form-control">
+                </div>
+                <br>
+                
+                <div class="form-field">
+                  <select name="subject" id="subject_input" form="createform" required>
+                    <option value="" disabled selected>Subject</option>                                
+                    {% for subject in subjects %}
+                    <option value="{{ subject.id }}">{{ subject.name }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+                <br><br>
+                  
+                <div class="form-field">
+                    <button type="submit" name="submit" value="createform" class="btn-large">Submit</button>
+                </div><br>
+            </form>
+
+          </div>
+
+
+          <div id="renameclass" class="tabcontent">
+            <br><br>
+            <h4 style="color:#374740; font-weight: 500; text-align: center;">Rename class</h4><br>
+            <form action = "" method = "POST" class="form-inline" id="renameform">
+              <div class="form-field">
+                <select name="selectclass" form="renameform" required>
+                  <option value="" disabled selected>Select class</option>
+                  {% for class3 in classes %}
+                  <option value="{{ class3.cID }}">{{ class3.name }}</option>
+                  {% endfor %}
+                </select>
+              </div><br>
+
+              <div class="form-field">
+                <input type="text" name="newname" placeholder="New name" class="form-control">
+              </div><br><br>
+
+              <div class="form-field">
+                <button type="submit" name="submit" value="renameform" class="btn-large">Submit</button>
+              </div><br>
+
+            </form>
+          
+          
+          </div>
+
+        </div>
+
+    <script>
+
+    function openTab(evt, option) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(option).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
+
+    // Prevents resubmission every refresh
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+
+    </script>
+
+  </body>
+
+</html>

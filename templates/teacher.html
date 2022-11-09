@@ -1,0 +1,106 @@
+<!-- James Wu -->
+
+<!DOCTYPE html>
+  <html>
+    <head>
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <script type = "text/javascript" src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+      <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js">
+      </script> 
+      <script>
+         $(document).ready(function() {
+            $('select').material_select();
+         });
+      </script>
+      <title>Teacher</title>
+    </head>
+    <style>
+    </style>
+
+    <body>
+      <nav>
+        <div class="nav-wrapper">
+          <ul class="left">
+            <li class="active"><a href="../teacher"><i class="fa fa-fw fa-home"></i> Home</a></li>
+          </ul>
+
+          <ul class="right">
+            <li><a href="../logout"><i class="fa fa-sign-out"></i> Log out</a></li>
+          </ul>
+
+        </div>
+      </nav>
+
+        <br><br><br><br>
+
+        <div class="container">
+
+            <div class="tab">
+                <button class="tablinks" onclick="openTab(event, 'home')" id="defaultOpen">Home</button> 
+                <button class="tablinks" onclick="openTab(event, 'profile')">Profile</button>
+                <button class="tablinks" onclick="openTab(event, 'manageclass')">Manage classes</button>
+            </div>
+
+            
+            <div id="home" class="tabcontent">
+              <br><br>
+              <h4 style="color:#374740; font-weight: 500; text-align: center;">Welcome, {{teacherobject.forename}} {{teacherobject.surname}}!</h4><br>
+            </div>
+
+            <div id="profile" class="tabcontent">
+              <br><br>
+              <h4 style="color:#374740; font-weight: 500; text-align: center;">Your profile</h4><br>
+              <p>Name: {{teacherobject.forename}} {{teacherobject.surname}}</p>
+              <p>Gender: {{teacherobject.gender}}</p>
+              <p>Date of birth: {{teacherobject.dob}}</p>
+              <p>Email: {{teacherobject.email}}</p>
+
+              <a class="btn" href="{{url_for('changepassword')}}" style="width:30%">Change password</a>  
+
+            </div>
+
+            <div id="manageclass" class="tabcontent">
+              <br><br>
+              <h4 style="color:#374740; font-weight: 500; text-align: center;">Manage your classes</h4><br>
+            
+              {% for aclass in classes %}
+              <a class="btn" href="/teacher/{{aclass.cID}}">{{aclass.name}}</a>  
+              {% endfor %}
+            
+            </div>
+        </div>
+
+    <script>
+
+    function openTab(evt, option) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(option).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
+
+    // Prevents resubmission every refresh
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+
+    </script>
+
+  </body>
+
+</html>

@@ -1,4 +1,4 @@
-U6th coursework [Textbook Catalogue] by James Wu
+Textbook Catalogue by James Wu
 
 To operate:
 
